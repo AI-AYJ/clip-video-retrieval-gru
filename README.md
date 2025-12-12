@@ -1,8 +1,4 @@
 
-
-test feature link: https://drive.google.com/drive/folders/1ii8c1-YKGG7zxOQiPrHU2N3thyY2DZBL?usp=sharing
-
-
 # 📹 CLIP-based Video-Text Retrieval Analysis
 
 > **CLIP 기반 Video-Text 검색에서 프레임 샘플링과 시간적 표현 기법이 성능에 미치는 영향 분석**
@@ -169,5 +165,8 @@ graph LR
 
 **Conference:**
 * KAICTS 2025 (Korea Artificial-Intelligence Convergence Technology Society)
+---
+
+test feature link: https://drive.google.com/drive/folders/1ii8c1-YKGG7zxOQiPrHU2N3thyY2DZBL?usp=sharing
 
 
