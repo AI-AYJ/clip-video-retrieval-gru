@@ -6,7 +6,7 @@
 > *Analyzing the Impact of Frame Sampling and Temporal Representation Techniques on Performance in CLIP-based Video-Text Retrieval*
 
 [![KAICTS](https://img.shields.io/badge/Conference-KAICTS_2025-blue)](https://kaicts.or.kr/)
-[![Python](https://img.shields.io/badge/Python-3.x-blue?logo=python&logoColor=white)](https://www.python.org/)
+[![Python](https://img.shields.io/badge/Python-3.10-blue?logo=python&logoColor=white)](https://www.python.org/)
 [![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?logo=pytorch&logoColor=white)](https://pytorch.org/)
 [![Model](https://img.shields.io/badge/Model-CLIP_%2B_GRU-yellow)](https://github.com/openai/CLIP)
 
