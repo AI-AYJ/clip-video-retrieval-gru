@@ -138,12 +138,14 @@ graph LR
 모델의 실제 검색 성능을 확인하기 위한 정성적 평가 결과입니다.
 
 * **Video-to-Text:** "Grand Theft Auto V" 게임 주행 영상에 대해 *"someone is driving the city in grand theft auto v"* 문장을 정확히 매칭 (Similarity: 0.42).
-<img src="https://github.com/user-attachments/assets/061e9c63-1239-4534-b2f9-7653cb9e0454"
-     width="500" />
+
+<img width="936" height="414" alt="image" src="https://github.com/user-attachments/assets/034f2f1b-6ca9-49bc-993e-522a5493d92e" />
+
 
 * **Text-to-Video:** *"a woman preparing a duck to roast"* 쿼리에 대해 요리 준비 과정이 담긴 비디오를 정확히 매칭. (Similarity: 0.28).
-<img src="https://github.com/user-attachments/assets/a271b92c-21fd-4e75-9d36-1e5060f1a6b3"
-     width="500" />
+
+<img width="724" height="575" alt="image" src="https://github.com/user-attachments/assets/6a0f2146-1116-4d95-a870-0e7f1df7783b" />
+
 
 * **Analysis:** 제안 모델이 양방향 검색(Video↔Text) 모두에서 의미적 맥락을 정확히 파악함을 확인했습니다.
 
