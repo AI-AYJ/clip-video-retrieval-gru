@@ -75,7 +75,7 @@ graph LR
 
 ---
 
-## 🧪 Experimental Setting
+## Experimental Setting
 
 ### Dataset
 본 연구는 **MSR-VTT (Microsoft Research Video to Text)** 데이터셋을 사용하여 실험을 진행했습니다.
