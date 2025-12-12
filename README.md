@@ -73,3 +73,83 @@ graph LR
     V_Emb <--> T_Emb
     style V_Emb fill:#f9f,stroke:#333
     style T_Emb fill:#f9f,stroke:#333
+```mermaid
+
+---
+
+## 🧪 Experimental Setting
+
+### Dataset
+* [cite_start]**MSR-VTT** [cite: 44]
+    * [cite_start]Total: 10k videos (20 captions each) [cite: 45]
+    * [cite_start]Split: 7k (Train) / 1k-A (Test) [cite: 46]
+
+### Hyperparameters
+[cite_start]실험에 사용된 주요 하이퍼파라미터 설정은 다음과 같습니다[cite: 75, 76].
+
+| Parameter | Value |
+| :--- | :--- |
+| **Backbone** | [cite_start]CLIP (ViT-B/16, pretrained) [cite: 76] |
+| **Input Frames** | [cite_start]8, 16, 32 [cite: 76] |
+| **Sampling** | [cite_start]Uniform vs Random [cite: 76] |
+| **Optimizer** | [cite_start]AdamW ($lr=1e-4$) [cite: 76] |
+| **Batch Size** | [cite_start]32 [cite: 76] |
+| **Environment** | [cite_start]NVIDIA A100 GPU [cite: 76] |
+
+---
+
+## 📊 Results & Analysis
+
+실험 결과에 대한 상세 분석입니다.
+
+### 1. Frame Count & Sampling Strategy
+* [cite_start]**Frame Count:** 프레임 수가 많을수록(8→32) 더 풍부한 시각 정보를 반영하여 비디오 표현력이 강화되는 경향을 보였습니다[cite: 139, 140].
+* **Sampling:** **Uniform 샘플링**이 Random 샘플링보다 더 안정적이고 일관된 성능을 보입니다. [cite_start]Random 샘플링은 성능 변동폭이 큽니다[cite: 146, 149].
+
+### 2. Temporal Representation (GRU vs Mean)
+* [cite_start]GRU 기반 모델이 프레임 간의 **시간적 관계(Temporal Dependency)**를 학습하여 의미적 일관성이 높은 비디오 표현을 형성했습니다[cite: 156].
+* [cite_start]결과적으로 GRU가 Mean Pooling 대비 전반적인 성능 우위를 점했습니다[cite: 157].
+
+### Performance Comparison (R@1)
+
+[cite_start]아래 표는 Uniform Sampling 기준의 R@1 성능 비교입니다[cite: 142, 152, 160].
+
+| Method | Sampling | 8 Frames | 16 Frames | 32 Frames |
+| :--- | :--- | :---: | :---: | :---: |
+| **Mean Pooling** | Uniform | 26.4 | 27.3 | 28.0 |
+| **GRU (Ours)** | **Uniform** | **28.1** | **29.9** | **30.2** |
+
+> [cite_start]**Key Finding:** Uniform Sampling + 32 Frames + GRU 조합에서 가장 안정적이고 높은 성능(30.2)을 달성했습니다[cite: 142].
+
+---
+
+## 🚀 Qualitative Results
+
+### Video-to-Text Retrieval
+* **Query Video:** Singing Contest (The Voice Kids)
+* [cite_start]**Top 1:** "a boy is trying out for a part on the voice kids" (Confidence: 0.28) [cite: 26]
+* **Analysis:** 시각적 정보와 텍스트 의미가 정확하게 매칭되었습니다.
+
+### Text-to-Video Retrieval
+* [cite_start]**Query Text:** "a woman preparing a duck to roast" [cite: 172]
+* [cite_start]**Top 1 Result:** 요리 준비 과정이 담긴 비디오가 정확하게 검색됨 (Confidence: 0.28)[cite: 173].
+
+---
+
+## 🔮 Future Work
+
+[cite_start]향후 연구 계획은 다음과 같습니다[cite: 178].
+
+* [cite_start]**Advanced Temporal Modules:** Bi-GRU 및 Transformer 기반 시간 모듈 확장 적용[cite: 179].
+* [cite_start]**Adaptive Sampling:** Scene-based 또는 Motion-aware와 같은 다양한 샘플링 전략 실험[cite: 180].
+* [cite_start]**Scale Up:** 대규모 비디오 데이터셋을 활용한 일반화 성능 검증[cite: 181].
+* [cite_start]**Bi-directional Retrieval:** 양방향 검색(Text→Video, Video→Text) 성능 고도화[cite: 182].
+
+---
+
+## 📝 Authors & Acknowledgement
+
+* [cite_start]**Authors:** Ayeong Jung, Junhwa Kim [cite: 7]
+* [cite_start]**Contact:** `23619024@konyang.ac.kr` / `junhwakim@konyang.ac.kr` [cite: 8]
+* [cite_start]**Affiliation:** Dept. of Medical AI, Konyang University [cite: 8]
+* [cite_start]**Event:** KAICTS 2025 Autumn Conference [cite: 3]
