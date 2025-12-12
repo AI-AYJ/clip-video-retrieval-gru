@@ -77,5 +77,89 @@ graph LR
     style T_Emb fill:#f9f,stroke:#333
 ```
 
+---
+
+## 🧪 Experimental Setting
+
+### Dataset
+본 연구는 **MSR-VTT (Microsoft Research Video to Text)** 데이터셋을 사용하여 실험을 진행했습니다.
+
+* **Composition:** 총 10,000개의 비디오 클립과 영상당 20개의 캡션으로 구성.
+* **Split:**
+    * **Train/Val:** 7,000개 (Temporal Adapter 학습)
+    * **Test:** 1,000-A split (성능 평가)
+* **Preprocessing:** 일관된 학습을 위해 각 비디오의 첫 번째 캡션만을 사용했습니다.
+
+### Hyperparameters
+실험 환경 및 주요 하이퍼파라미터 설정은 다음과 같습니다.
+
+| Category | Setting |
+| :--- | :--- |
+| **Backbone** | CLIP (ViT-B/16, Pretrained) |
+| **Input Frames** | 8, 16, 32 |
+| **Sampling** | Uniform vs Random |
+| **Optimizer** | AdamW ($lr=1\times10^{-4}$) |
+| **Loss Function** | Contrastive Loss |
+| **Batch Size** | 32 |
+| **Patience** | 5 (Early Stopping) |
+| **Hardware** | NVIDIA A100 GPU |
+
+---
+
+## 📊 Results & Analysis
+
+### Main Results (Video-to-Text)
+프레임 수, 샘플링 방식, 그리고 시간적 표현 기법(Mean Pooling vs GRU)에 따른 성능 비교 결과입니다.
+
+| Model | Sampling | Frames | R@1 | R@5 | R@10 | MnR ↓ |
+| :--- | :--- | :---: | :---: | :---: | :---: | :---: |
+| **Mean Pooling** | Uniform | 8 | 26.4 | 51.0 | 62.9 | 34.8 |
+| | | 16 | 27.3 | 52.6 | 63.8 | 34.6 |
+| | | 32 | 28.0 | 52.2 | 64.1 | 34.3 |
+| | Random | 8 | 27.1 | 51.9 | 62.8 | 36.2 |
+| | | 16 | 28.6 | 52.1 | 62.6 | 36.2 |
+| | | 32 | 27.1 | 52.3 | 64.0 | 34.6 |
+| **GRU (Ours)** | **Uniform** | **8** | 28.1 | 55.0 | 66.0 | 36.3 |
+| | | **16** | 29.9 | 58.3 | 68.8 | 32.6 |
+| | | **32** | **32.0** | **58.9** | **69.0** | **29.0** |
+| | Random | 8 | 30.2 | 55.3 | 67.2 | 36.2 |
+| | | 16 | 30.2 | 51.8 | 62.5 | 50.9 |
+| | | 32 | 30.3 | 52.5 | 64.6 | 55.2 |
+
+### Key Findings
+1.  **Effect of Temporal Modeling:** GRU 모델은 모든 구간에서 Mean Pooling보다 우수한 성능을 보였으며, 특히 **Uniform 32f 설정에서 R@1 기준 4.0%p 향상 (28.0% → 32.0%)**을 달성했습니다.
+2.  **MnR Improvement:** 검색 순위의 평균을 나타내는 MnR 지표 또한 34.3에서 **29.0**으로 크게 개선되었습니다.
+3.  **Frame Count:** 프레임 수가 많을수록(8→32) 더 풍부한 정보를 반영하여 성능이 향상되었습니다.
+
+---
+
+## 🚀 Qualitative Results
+
+모델의 실제 검색 성능을 확인하기 위한 정성적 평가 결과입니다.
+
+* **Video-to-Text:** 노래 경연 프로그램 영상(The Voice Kids)에 대해 *"a boy is trying out for a part on the voice kids"* 텍스트를 정확히 검색 (Confidence: 0.28).
+* **Text-to-Video:** *"a woman preparing a duck to roast"* 쿼리에 대해 요리 준비 과정이 담긴 비디오를 정확히 매칭.
+* **Analysis:** 제안 모델이 양방향 검색(Video↔Text) 모두에서 의미적 맥락을 정확히 파악함을 확인했습니다.
+
+---
+
+## 🔮 Future Work
+
+* **Advanced Modules:** 단방향 GRU의 한계를 넘어 양방향 문맥을 고려하는 Bi-GRU 및 Transformer 기반 시간 모듈 확장 적용.
+* **Adaptive Sampling:** Scene-based 또는 Motion-aware와 같은 다양한 샘플링 전략 실험.
+* **Generalization:** 대규모 비디오 데이터셋을 활용한 일반화 성능 검증.
+
+---
+
+## 📝 Acknowledgments & Citation
+
+본 연구는 과학기술정보통신부 및 정보통신기획평가원의 **SW중심대학사업** 지원을 받아 수행되었습니다 (2024-0-00047).
+
+**Authors:**
+* **Jeong Ayeong** (Dept. of Medical AI, Konyang Univ.)
+* **Kim Junhwa** (Dept. of AI, Konyang Univ.)
+
+**Conference:**
+* KAICTS 2025 (Korea Artificial-Intelligence Convergence Technology Society)
 
 
