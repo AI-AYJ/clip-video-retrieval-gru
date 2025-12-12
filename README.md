@@ -138,7 +138,11 @@ graph LR
 모델의 실제 검색 성능을 확인하기 위한 정성적 평가 결과입니다.
 
 * **Video-to-Text:** 노래 경연 프로그램 영상(The Voice Kids)에 대해 *"a boy is trying out for a part on the voice kids"* 텍스트를 정확히 검색 (Confidence: 0.28).
+* * <img width="300" height="139" alt="image" src="https://github.com/user-attachments/assets/061e9c63-1239-4534-b2f9-7653cb9e0454" />
+
 * **Text-to-Video:** *"a woman preparing a duck to roast"* 쿼리에 대해 요리 준비 과정이 담긴 비디오를 정확히 매칭.
+* <img width="254" height="189" alt="image" src="https://github.com/user-attachments/assets/a271b92c-21fd-4e75-9d36-1e5060f1a6b3" />
+
 * **Analysis:** 제안 모델이 양방향 검색(Video↔Text) 모두에서 의미적 맥락을 정확히 파악함을 확인했습니다.
 
 ---
