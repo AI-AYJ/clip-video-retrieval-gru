@@ -43,7 +43,7 @@ test feature link: https://drive.google.com/drive/folders/1ii8c1-YKGG7zxOQiPrHU2
 
 ---
 
-## 🏗️ Model Architecture
+##  Model Architecture
 
 본 프로젝트는 사전 학습된 **CLIP (ViT-B/16)**을 백본으로 사용하며, 두 가지 접근 방식을 비교 분석하였습니다.
 
@@ -143,7 +143,7 @@ graph LR
 
 ---
 
-## 🔮 Future Work
+## Future Work
 
 * **Advanced Modules:** 단방향 GRU의 한계를 넘어 양방향 문맥을 고려하는 Bi-GRU 및 Transformer 기반 시간 모듈 확장 적용.
 * **Adaptive Sampling:** Scene-based 또는 Motion-aware와 같은 다양한 샘플링 전략 실험.
