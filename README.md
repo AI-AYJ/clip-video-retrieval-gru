@@ -41,7 +41,7 @@
 
 ##  Model Architecture
 
-본 프로젝트는 사전 학습된 **CLIP (ViT-B/16)**을 백본으로 사용하며, 두 가지 접근 방식을 비교 분석하였습니다.
+본 프로젝트는 사전 학습된 CLIP (ViT-B/16)을 백본으로 사용하며, 두 가지 접근 방식을 비교 분석하였습니다.
 
 ### 1. Baseline (Mean Pooling)
 * 각 프레임의 임베딩을 추출한 후 단순 평균(Mean)하여 비디오 임베딩 생성.
@@ -123,7 +123,7 @@ graph LR
 | | | 32 | 30.3 | 52.5 | 64.6 | 55.2 |
 
 ### Key Findings
-1.  **Effect of Temporal Modeling:** GRU 모델은 모든 구간에서 Mean Pooling보다 우수한 성능을 보였으며, 특히 **Uniform 32f 설정에서 R@1 기준 4.0%p 향상 (28.0% → 32.0%)**을 달성했습니다.
+1.  **Effect of Temporal Modeling:** GRU 모델은 모든 구간에서 Mean Pooling보다 우수한 성능을 보였으며, 특히 Uniform 32f 설정에서 R@1 기준 4.0%p 향상 (28.0% → 32.0%)을 달성했습니다.
 2.  **MnR Improvement:** 검색 순위의 평균을 나타내는 MnR 지표 또한 34.3에서 **29.0**으로 크게 개선되었습니다.
 3.  **Frame Count:** 프레임 수가 많을수록(8→32) 더 풍부한 정보를 반영하여 성능이 향상되었습니다.
 
