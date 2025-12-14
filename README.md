@@ -14,19 +14,19 @@
 
 ---
 
-## 📂 Source Code & Model Weights
+##  Source Code & Model Weights
 
 본 리포지토리는 KAICTS 2025 학술대회 발표 논문의 실험 코드를 포함하고 있습니다.
 
 | Type | File | Description |
 | :--- | :--- | :--- |
-| **Proposed** | 📄 **[GRU.ipynb](./GRU.ipynb)** | **제안 모델:** GRU Adapter + Attention Pooling 구현 코드 |
-| **Baseline** | 📄 **[Meanpooling.ipynb](./Meanpooling.ipynb)** | **비교 모델:** Frame Mean Pooling 구현 코드 |
-| **Weights** | 💾 **[GRU_adapter3_32f_hidden1024.pth](./GRU_adapter3_32f_hidden1024.pth)** | 학습이 완료된 GRU Adapter 모델 가중치 파일 |
+| **Proposed** |  **[GRU.ipynb](./GRU.ipynb)** | **제안 모델:** GRU Adapter + Attention Pooling 구현 코드 |
+| **Baseline** |  **[Meanpooling.ipynb](./Meanpooling.ipynb)** | **비교 모델:** Frame Mean Pooling 구현 코드 |
+| **Weights** |  **[GRU_adapter3_32f_hidden1024.pth](./GRU_adapter3_32f_hidden1024.pth)** | 학습이 완료된 GRU Adapter 모델 가중치 파일 |
 
 ---
 
-## 📖 Abstract
+##  Abstract
 
 최근 CLIP 기반 모델은 비디오-텍스트 검색에서 주목받고 있으나, 기존 연구들은 선택된 프레임 특징을 단순 평균(Mean Pooling)하여 **시간적 정보(Temporal Information)가 반영되지 않는 한계**가 있습니다.
 
@@ -102,7 +102,7 @@ graph LR
 
 ---
 
-## 📊 Results & Analysis
+##  Results & Analysis
 
 ### Main Results (Video-to-Text)
 프레임 수, 샘플링 방식, 그리고 시간적 표현 기법(Mean Pooling vs GRU)에 따른 성능 비교 결과입니다.
@@ -129,7 +129,7 @@ graph LR
 
 ---
 
-## 🚀 Qualitative Results
+##  Qualitative Results
 
 모델의 실제 검색 성능을 확인하기 위한 정성적 평가 결과입니다.
 
